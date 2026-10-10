@@ -4,8 +4,9 @@ import { experience, languages, profile, projects, skills } from "@/lib/data";
 export const runtime = "nodejs";
 export const maxDuration = 30;
 
-const MODEL = "claude-haiku-4-5";
-const MAX_TOKENS = 512;
+const MODEL = "claude-haiku-5-5";
+// Haiku 5.5 thinks by default and thinking counts toward max_tokens: low effort + headroom keeps answers short and fast
+const MAX_TOKENS = 2048;
 const HISTORY_LIMIT = 12;
 
 const SYSTEM_PROMPT = buildSystemPrompt();
@@ -116,6 +117,7 @@ export async function POST(req: Request) {
         const response = client.messages.stream({
           model: MODEL,
           max_tokens: MAX_TOKENS,
+          output_config: { effort: "low" },
           system: [
             {
               type: "text",

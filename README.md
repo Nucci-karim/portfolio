@@ -65,7 +65,7 @@ Single source of truth for everything visible on the page. Replace placeholder v
 
 - Get an API key at [console.anthropic.com](https://console.anthropic.com)
 - Add to `.env.local` as `ANTHROPIC_API_KEY=sk-ant-...`
-- The chat uses `claude-haiku-4-5` (fast, cheap, ~$1/M input tokens)
+- The chat uses `claude-haiku-5-5` at low effort (fast, cheap, ~$0.10/M input tokens)
 - Estimated cost: pennies per month for a personal portfolio
 - If no key is set, the chat shows a friendly "not configured" message — site still works perfectly
 
